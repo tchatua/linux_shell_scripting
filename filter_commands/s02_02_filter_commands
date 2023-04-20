@@ -1,0 +1,141 @@
+Filter commands
+================
+Filter commands we USe to work with based on delimiters or record separators
+
+delimiters - space or tabspace or , or ; or : (field separators)
+
+/etc/passwd file contains 7 fields
+
+
+record separators - enter
+
+
+cut
+tr 
+
+
+cut 
+======
+It is USed to extract the spefic fields based on delimiter
+
+cut -d "delimiter" -fn filename
+
+
+-d delimiter
+-f field
+n number
+
+
+Note: default delimiter is tabspace
+
+cut -fn filename
+
+
+
+|
+
+cmd1|cmd2
+
+========================
+[tchatua@server1 lss]$ cat student_info
+101     John    shell   US
+102     Sevan     perl    UK
+103     Lea    java    India
+104     Dominique    perl    Cameroon
+[tchatua@server1 lss]$ cat student_info|cut -f2
+John
+Sevan
+Lea
+Dominique
+[tchatua@server1 lss]$ cat student_info|cut -f2,4
+John    US
+Sevan     UK
+Lea    India
+Dominique    India
+[tchatua@server1 lss]$ cat student_info|cut -f2-4
+John    shell   US
+Sevan     perl    UK
+Lea    java    India
+Dominique    perl    Cameroon
+[tchatua@server1 lss]$
+=====================================================
+
+Redirections
+=================
+1)input redirection	(stdin)			0<		0 and < both are optional 
+
+2)output redirection(stdout)		1>		1 is optional
+
+3)error redirection(stderr)			2>
+
+4)output and error redirection(stdout and stderr)		>filename 2>&1
+
+
+
+
+=======================================
+[tchatua@server1 lss]$ cut -d ":" -f1 /etc/passwd^C
+[tchatua@server1 lss]$ tail -1 /etc/passwd|cut -d ":" -f1
+raju
+[tchatua@server1 lss]$
+
+======================================================
+[tchatua@server1 lss]$ date|cut -d " " -f1
+Wed
+[tchatua@server1 lss]$
+======================================================
+[tchatua@server1 lss]$ date|cut -d " " -f1
+Wed
+[tchatua@server1 lss]$ date|cut -c 1
+W
+[tchatua@server1 lss]$ date|cut -c 1-3
+Wed
+[tchatua@server1 lss]$ echo "hello world"|cut -c 1-5
+hello
+[tchatua@server1 lss]$ echo "hello world"|cut -c 1,7
+hw
+[tchatua@server1 lss]$
+==============================================================
+cut -c 1-3 filename
+
+[tchatua@server1 lss]$ date|cut -c 1-3
+Wed
+
+
+-c means character
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
