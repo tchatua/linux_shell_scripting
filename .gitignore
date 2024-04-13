@@ -1,2 +1,3 @@
 .vagrant
-s02_02_filter_commands.bkp
+git.sh
+**/*/.terraform*
